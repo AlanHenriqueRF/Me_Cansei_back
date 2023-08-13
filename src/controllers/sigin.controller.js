@@ -6,10 +6,10 @@ export async function signIN(req, res) {
     const {email, password} = req.body;
 
     try {
-        const userId = ((await db.query(`SELECT * FROM UserSignup WHERE email=$1`,[email])).rows)[0].id;
+        const userId = ((await db.query(`SELECT * FROM users WHERE email=$1`,[email])).rows)[0].id;
         const token = uuid();
         await db.query(`
-            INSERT INTO useronline (token,"userId", )
+            INSERT INTO useronline (token,"userId")
                 VALUES ($1, $2);
         `, [token,userId])
         
