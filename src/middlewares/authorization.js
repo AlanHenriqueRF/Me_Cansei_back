@@ -1,4 +1,5 @@
-import { db } from "../database/database.connection.js";
+import { db } from "../database/db.connection.js";
+
 
 export async function autorization(req, res, next) {
     const authorization = req.headers.authorization;
